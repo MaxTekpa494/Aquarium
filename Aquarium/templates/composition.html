@@ -1,0 +1,26 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+
+
+<p>Dans notre aquarium, le {{compo.nom_espece}} est composé de {{nombre.nb}} animaux.</p>
+
+<p>Ces animaux vivent dans le bassin numero {{compo.numbassin}} qui se situe dans le secteur {{compo.nomsect}}.</p>
+
+
+{% for elem in compo1 %}
+  <p>Pour plus d'informations cliquer sur les <a href="/especes/{{id}}/{{elem.nom}}">{{elem.nom}}</a></p>
+{% endfor %}
+
+<!--
+Pour plus d'informations cliquer sur les <a href="/espece/{{id}}/animaux">animaux</a>
+-->

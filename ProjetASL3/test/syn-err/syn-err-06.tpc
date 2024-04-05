@@ -1,8 +1,0 @@
-int main(void){
-    char tab[19];
-    return tableau(tab);
-}
-
-int tableau(char *tableau){
-    return 1;
-}

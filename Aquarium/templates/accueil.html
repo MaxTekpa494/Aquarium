@@ -1,0 +1,28 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+    
+</br>
+<!--style="text-align:center; background-color:LightGray"
+ <img src = "{{ url_for('static', filename = 'accueil.png') }}" alt = "accueil" width = "1400"  height="562">
+-->
+<h1>Description</h1>
+<p>Notre Aquarium est composé de plusieurs espèces d'animaux. La liste des <a href="especes">espèces</a>. </p>
+
+
+
+<p>Pour visiter notre aquarium cliquez sur le lien <a href="visiteur">visiteur</a></p>
+
+
+<p>Pour toute actualité sur  notre aquarium cliquez sur le lien <a href="actualite">Actualité</a></p>
+</html>
+

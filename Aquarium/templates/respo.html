@@ -1,0 +1,92 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+
+
+
+
+<p>Le bassin propose des activités telles que:</p>
+
+{% for elem in tout_acti %}
+        {% if elem.jour != None %}
+            <p>{{elem.nomac}} le {{elem.jour}} à {{elem.heure}}</p>
+        {% else %}
+        <p>{{elem.nomac}} tous les jours à {{elem.heure}}</p>
+        {% endif %}
+{% endfor %}
+
+
+<p><b>Pour créer une nouvelle activité </br>veuillez remplir le formulaire ci-dessous:</b></p>
+
+
+<form method="post" action="/employe/{{new_bassin}}/ajout_activite">
+    
+    <label for="name">Nom de l'activité :</label></br>
+    <input type="text"  name="name" required></br>
+
+    <label for="uname">Veuillez choisir le jour de l'activité : </label></br>
+    <input type="text" name="jour"></br>
+
+    <label for="uname">Heure : </label></br>
+    <input type="text" name="heure" required></br>
+
+    <label for="uname">Situation : </label></br>
+    <input type="text" name="situa" required></br>
+
+    
+    <input type="submit" value="Créer">
+
+</form>
+
+
+<p><b>Pour supprimer une activité, </br>veuillez entrer son identifiant </b></p>
+
+<form method="post" action="/employe/{{new_bassin}}/supp_activite">
+    <label for="tentacles">idActivite :</label> </br>
+    <input type="number" name="id" required></br>
+    </br>
+    <input type="submit" value="Supprimer">
+</form>
+
+
+
+<p><b>Pour modifier une activité </br>veuillez remplir le formulaire ci-dessous:</b></p>
+
+
+<form method="post" action="/employe/{{new_bassin}}/update_activite">
+    <label for="uname">idActivité : </label></br>
+    <input type="text" name="act" required></br>
+    <p>Champ à modifier :
+        <select name="amodif">
+            {% for elem in col %}
+            <option value = '{{elem}}'>{{elem}}</option>
+            {% endfor %}   
+        </select>
+    </p>
+    <label for="uname">Modification : </label></br>
+    <input type="text" name="modif" required></br>
+    </br>
+    <input type="submit" value="Modifier">
+
+</form>
+
+
+<p><b>Pour affecter un employé a une activité du bassin {{new_bassin}} 
+</br>veuillez cliquer sur le lien ci-dessous:</b></p>
+
+<b><a href="/employe/{{new_bassin}}/choix">Choisir un employé</a></b>
+
+
+<p><b>Pour consulter la liste des aniamaux vivant dans le bassin {{new_bassin}} 
+</br>veuillez cliquer sur le lien ci-dessous:</b></p>
+
+<b><a href="/employe/{{new_bassin}}/animaux">consultation des animaux</a></b>

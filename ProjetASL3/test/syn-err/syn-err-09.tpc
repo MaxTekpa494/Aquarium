@@ -1,9 +1,0 @@
-
-int a;
-int b;
-int bit_a_bit(void){
-  a = 1;
-  b = 2;
-  s = a << b;
-  return s;
-}

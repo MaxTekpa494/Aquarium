@@ -1,0 +1,145 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+
+
+
+
+<h2 style="text-align:center"><b>Bienvenue sur la Page gestionnaire</b></h2>
+
+
+<h3><b>Fiches professionnelles</b></h3>
+<p style="text-align:center">
+<table style="text-align:center" border="3">
+    
+    <tr>
+        <th scope="col">Num de securité social</th>
+        <th scope="col">Nom </th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Date de naissance</th>
+        <th scope="col">Gestionnaire</th>
+    </tr>
+    {% for elem in liste_employe %}
+    <tr>
+        <td>{{elem.numss}}</td>
+        <td>{{elem.nom}}</td>
+        <td>{{elem.prenom}}</td>
+        <td>{{elem.adresse}}</td>
+        <td>{{elem.datenais}}</td>
+        <td>{{elem.gestionnaire}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</p>
+
+
+
+<b>Pour toute modification, veuillez remplir le formulaire ci-dessous</b>
+<br>
+
+<form method="post" action="fiche_employe/update_3">
+    <label for="uname">numSS : </label></br>
+    <input type="text" name="numss2" required></br>
+    <p>Champ à modifier :
+        <select name="amodif2">
+            {% for elem in lst_2 %}
+            <option value = '{{elem}}'>{{elem}}</option>
+            {% endfor %}   
+        </select>
+    </p>
+    <label for="uname">Modification : </label></br>
+    <input type="text" name="modif2" required></br>
+    </br>
+    <input type="submit" value="Modifier">
+
+</form>
+
+
+<b>La liste des noms, prénoms, et heures cumulées des
+employés à s’occuper des bassins.<br>
+
+<p>
+<table style="text-align:center" border="3">
+    
+    <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom </th>
+        <th scope="col">Heures totales</th>
+    </tr>
+{% for elem in code_liste %}
+<tr>
+    <td>{{elem.nom}}</td>
+    <td>{{elem.prenom}}</td>
+    <td>{{elem.heure_t}}</td>
+</tr>
+{% endfor %}
+</table>
+</p>
+
+
+
+
+
+
+<p><b>La liste de tous les responsables</b></p>
+
+
+<table style="text-align:center" border="3">
+<tr>
+    <th scope="col">Num de securité social</th>
+    <th scope="col">Nom </th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Adresse</th>
+    <th scope="col">Numero de bassin</th>
+</tr>
+{% for respo in lst_3 %}
+<tr>
+    <td>{{respo.numss}}</td>
+    <td>{{respo.nom}}</td>
+    <td>{{respo.prenom}}</td>
+    <td>{{respo.adresse}}</td>
+    <td>{{respo.numbassin}}</td>
+</tr>
+{% endfor %}
+</table>
+
+
+
+
+
+<p><b>Supprimer la responsabilité d'un bassin à un employé</b></p>
+<form method="post" action="fiche_employe/delete_4">
+    
+    <label for="uname">Nom du bassin : </label></br>
+        <input type="number" name="bas1" required></br>
+        </br>
+        <input type="submit" value="Modifier">
+
+</form>
+
+
+<p><b>Donner la responsabilité d'un bassin à un employé</b></p>
+<form method="post" action="fiche_employe/update_5">
+    
+    <label for="uname">Nom du bassin : </label></br>
+        <input type="number" name="bas1" required></br>
+        </br>
+    <label for="uname">Numero de l'employé : </label></br>
+    <input type="number" name="ajout" required></br>
+    </br>
+    <input type="submit" value="Modifier">
+
+</form>
+
+
+<p><a href="fiche_employe/gestion">Pour consulter les stocks de nourriture</a></p>

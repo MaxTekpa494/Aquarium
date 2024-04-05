@@ -1,0 +1,22 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="accueil">Accueil</a>
+    <a href="informations">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="#">Liens</a>
+</nav>
+    
+
+
+<p>Les espèces:</p>
+
+<ul>
+    {% for elem in eplist %}
+      <li> <a href = "especes/{{elem.idespece}}">{{elem.nom_espece}}</a></li>
+      {% endfor %} 
+</ul>

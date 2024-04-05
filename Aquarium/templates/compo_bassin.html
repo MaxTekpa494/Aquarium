@@ -1,0 +1,30 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+
+<p>Le bassin {{compobassin.numbassin}} qui se trouve dans le secteur {{compobassin.nomsect}} contient {% for elem in compo1bassin %}
+    {{elem.nom_espece}}
+{% endfor %}
+</p>
+
+
+<p>Le bassin propose des activités telles que:</p>
+
+{% for elem in acti %}
+    {% if elem.situation == 'Ouverte' %}
+        {% if elem.jour != None %}
+            <p>{{elem.nomac}} le {{elem.jour}} à {{elem.heure}}</p>
+        {% else %}
+        <p>{{elem.nomac}} tous les jours à {{elem.heure}}</p>
+        {% endif %}
+    {% endif %}
+{% endfor %}

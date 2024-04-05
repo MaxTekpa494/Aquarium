@@ -1,0 +1,45 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+
+
+
+
+<h2 style="text-align:center"><b>Bienvenue sur la Page gestionnaire</b></h2>
+
+
+
+
+
+
+    <p style="text-align:center">Pour des raisons veuillez entrer votre nom et prenom</p>
+
+    <form style="text-align:center" action="employe/gestionnaire/fiche_employe"  method="post">
+        <div>
+            <input type="text" id="user"  name="user11">    <!--placeholder="prenom.nom"-->
+        </div>
+        </br>
+        <div>
+            <input type="text" id="user"  name="user12">    <!--placeholder="prenom.nom"-->
+        </div>
+        </br>
+        <div>
+            <input type="number" id="user"  name="numss">    <!--placeholder="prenom.nom"-->
+        </div>
+        </br>
+        
+        <input type="submit" name="submit" value="Connexion">
+    
+    </form>
+
+
+

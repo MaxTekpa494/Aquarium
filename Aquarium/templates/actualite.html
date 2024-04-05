@@ -1,0 +1,41 @@
+<html>
+  <title>Mairie</title>
+<header>
+    <h1  style="text-align:center">Bienvenue sur le site de la mairie de Noisy-Le-Grand</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+
+
+<h2  style="text-align:center">Actualités</h2>
+
+
+<p><b>
+    La mairie de Noisy-Le-Grand a le plaisir de vous annoncer qu'elle subventienne desormais l'Aquarium<br>
+    Gustave Effeil. Ainsi vous pouvez suivre dès à présent  les dernieres actualités concernant l'Aquarium sur<br>
+    le site de la mairie. 
+
+</b></p>
+
+<h3>les 5 derniers animaux arrivés dans l’aquarium</h3>
+
+<table style="text-align:center" border="3">
+    
+    <tr>
+        <th scope="col">Nom de l'animal</th>
+        <th scope="col">espèce</th>
+        <th scope="col">Numero de bassin</th>
+        <th scope="col">Nom du secteur</th>
+        <th scope="col">Lieu de naissance</th>
+    </tr>
+    {% for elem in mairie %}
+    <tr>
+        <td>{{elem.nom}}</td>
+        <td>{{elem.nom_espece}}</td>
+        <td>{{elem.numbassin}}</td>
+        <td>{{elem.nomsect}}</td>
+        <td>{{elem.lieunais}}</td>
+    </tr>                                               
+{% endfor %}
+</table>
+

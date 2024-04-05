@@ -1,0 +1,24 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+
+
+<p>Les activités suivantes vous sont proposées le {{jour_visite}}</p>
+
+
+<ul>
+    {% for elem in pro %}
+        {% if (elem.jour == None or elem.jour == jour_visite) and elem.situation == 'Ouverte' %}
+            <li>De {{elem.heure}}, {{elem.nomac}} dans le <a href ="bassin/{{elem.numbassin}}">bassin {{elem.numbassin}}</a></li>
+        {% endif %}
+    {% endfor %} 
+</ul>

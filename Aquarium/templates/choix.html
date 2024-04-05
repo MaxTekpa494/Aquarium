@@ -1,0 +1,52 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+
+
+
+<form method="post" action="/employe/{{numbassin}}/choix/affectation">
+   
+  <p> Veuillez choisir un employé à affecter dans le bassin {{numbassin}} :
+    <select name="pref1">
+    {% for elem in choix %}
+    <option value='{{elem.numss}}'>{{elem.nom}} {{elem.prenom}}</option>
+    {% endfor %}   
+    </select>
+  </p> 
+</br>
+</br>
+
+  <p> L'activité dans laquelle vous voulez l'affecter  :
+    <select name="pref2">
+    {% for elem in liste_choix %}
+    <option value='{{elem.idactivite}}'>{{elem.nomac}}</option>
+    {% endfor %}   
+    </select>
+  </p> 
+
+
+
+  <p><input type="submit" value="Valider"></p> 
+   
+  </form>
+
+
+
+<h3><b>La liste des employés travaillant dans le bassin {{numbassin}}</b></h3>
+
+{% for elem in code_liste %}
+  {% if elem.jour == None %}
+    <p>{{elem.nom}} s'occupe {{elem.nomac}} de {{elem.heure}} toute la semaine</p>
+  {% else %}
+  <p>{{elem.nom}} s'occupe {{elem.nomac}} de {{elem.heure}} le {{elem.jour}}</p>
+  {% endif %}
+{% endfor %}

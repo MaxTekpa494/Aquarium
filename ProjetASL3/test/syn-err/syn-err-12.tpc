@@ -1,4 +1,0 @@
-
-test test_comme_type(int nb){
-  return;
-}

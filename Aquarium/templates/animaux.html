@@ -1,0 +1,49 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+<!--
+{% for elem in animaux %}
+    <p>Le {{elem.nom}} vit dans le bassin numero {{elem.numbassin}} qui 
+    se trouve dans le secteur {{elem.nomsect}}</p>
+    <p>Le {{elem.nom}} est une {{elem.sexe}} qui est {{elem.lieunais}}</p>
+{% endfor %}
+-->
+
+
+
+<p><b>
+{% for elem in animaux %}
+    {% if elem.sexe == 'femelle' %}
+    {{elem.nom}} est une {{elem.sexe}}
+    {% else %}
+    Le {{elem.nom}} est un {{elem.sexe}}
+    {% endif %}
+    de l'espèce des {{elem.nom_espece}}
+    {% if elem.lieunais == 'extérieur' %}
+    qui vient de l'{{elem.lieunais}}.
+    {% else %}
+    qui est {{elem.lieunais}}.
+    {% endif %} <br>
+    Il est né le {{elem.datea}}
+    {% if elem.signedis != None %}
+    et a pour signe distinctif -> {{elem.signedis}}
+    {% endif %} 
+    {% if elem.situation != None %}
+        <p>Etat : {{elem.situation}} le {{elem.dated}}</p>
+    {% else %}
+    <p>Le {{elem.nom}} vit dans le bassin numero {{elem.numbassin}} qui 
+        se trouve dans le secteur {{elem.nomsect}}</p>
+    {% endif %}
+{% endfor %}
+
+</b>
+</p>

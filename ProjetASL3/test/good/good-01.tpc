@@ -1,6 +1,0 @@
-int un;
-int deux;
-int trois, quatre;
-int main(void){
-    return 0;
-}

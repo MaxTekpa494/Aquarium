@@ -1,5 +1,0 @@
-
-int a, b, c, d;
-int expression(void){
-    a = (b / c) + d;
-}

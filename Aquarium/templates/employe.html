@@ -1,0 +1,57 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+
+<!--{% for elem in log %}
+    {% if log1.nom+"."+log2.prenom == login %}
+        <p>Bienvenue sur votre compte cher {{log1.nom}}</p>
+    {% endif %}-->
+<!--{% endfor %}-->
+
+<p>  <b>Bonjour {{log2}} {{log1}} </b></p>
+
+<p>Voici votre planning de la semaine</p>
+
+<p>
+    {% for elem in emploi %}
+        {% if elem.nom == log1  and elem.prenom == log2 %}
+            {% if elem.jour == None %}
+                <pre>{{elem.nomac}} du lundi au samedi  de {{elem.heure}} dans le <a href ="bassin/{{elem.numbassin}}">bassin {{elem.numbassin}}</a></pre>
+            {% else %}
+            <pre>{{elem.nomac}} le {{elem.jour}} de {{elem.heure}} dans le <a href ="bassin/{{elem.numbassin}}">bassin {{elem.numbassin}}</a></pre>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</p>
+
+<p>
+
+
+
+{% for element in emploi2 %}
+    {% if element.nom == log1 %}
+        <p><b>Vous êtes un responsable du bassin {{element.numbassin}} pour toute consultation cliquer <a href="employe/{{element.numbassin}}">Bassin {{element.numbassin}}</a></b></p>
+    {% endif %}
+{% endfor %}
+
+</p>
+
+
+<p>
+{% for element2 in emploi3 %}
+    {% if element2.nom == log1 %}
+        {% if element2.gestionnaire == true %}
+            <p><b>En tant que gestionnaire vous pouvez consulter la fiche de <a href="formu_gestion">gestion</a></br> </p>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+</p>

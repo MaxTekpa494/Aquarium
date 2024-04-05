@@ -1,0 +1,25 @@
+<html>
+  <title>Aquarium</title>
+<header>
+    <h1  style="text-align:center">Bienvenue</h1>    
+</header>
+<nav style="text-align:center; background-color:LightGray">
+    <a href="{{ url_for('accueil') }}">Accueil</a>
+    <a href="{{ url_for('information') }}">Informations</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="{{ url_for('lien') }}">Liens</a>
+</nav>
+
+
+
+
+
+<form method="post" action="inscription2">
+    <p> numero social : <input type="number" name="numss3">
+    <p> Nom : <input type="text" name="nom">
+    <p> Prenom : <input type="text" name="pre">
+    <p> adresse : <input type="text" name="ads">
+    <p> Date de naissance : <input type="text" name="date">
+    <p><input type=submit value="Envoyer">
+  </form>

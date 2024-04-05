@@ -1,3 +1,0 @@
-void void_comme_type(int nb){
-  return;
-}
