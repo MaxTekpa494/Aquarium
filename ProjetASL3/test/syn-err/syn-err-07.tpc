@@ -1,0 +1,5 @@
+/* Pas de declarations cette fois-ci */
+char main(char i, int j){
+    somme = i < j : 10;
+    return somme;
+}

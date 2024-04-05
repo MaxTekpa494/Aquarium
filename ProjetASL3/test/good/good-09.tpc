@@ -1,0 +1,12 @@
+
+
+
+
+
+
+
+
+
+int divise(int a, int b){
+  s = a / b;
+}

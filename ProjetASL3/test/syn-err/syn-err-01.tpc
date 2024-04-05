@@ -1,0 +1,5 @@
+char res;
+int main(int a){
+    int resul = 'c'; 
+    return 1;
+}

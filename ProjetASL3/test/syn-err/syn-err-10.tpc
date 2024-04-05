@@ -1,0 +1,4 @@
+
+char pas_de_type_dans_parametre(a, b){
+    return c;
+}

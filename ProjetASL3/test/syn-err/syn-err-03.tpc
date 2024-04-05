@@ -1,0 +1,7 @@
+int value;
+
+int init;
+init = 10; 
+int my_fonction(void){
+    return 1;
+}

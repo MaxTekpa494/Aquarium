@@ -1,0 +1,13 @@
+/*
+	
+	
+Test/good/good-01.tpc
+Expression correcte
+Test/good/good-02.tpc
+Expression correcte
+Test/good/good-03.tpc
+Expression correcte
+Test/good/good-04.tpc
+Expression correcte
+*/
+int good(void){ /*return good*/ }

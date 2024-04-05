@@ -1,0 +1,4 @@
+int a;
+int fonction(void){
+ return a + b;
+}

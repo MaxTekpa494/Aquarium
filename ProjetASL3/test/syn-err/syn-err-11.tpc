@@ -1,0 +1,4 @@
+
+char melange_de_void_et_int(void, int t){
+   return;
+}
